@@ -105,7 +105,7 @@ class twitter_feeds extends WP_Widget {
 		if($result!==NULL){
 			if(count($result)>0){
 				foreach($result as $feed){
-					echo '<li><i class="fa fa-twitter"></i> '.$feed['text'].'<span class="date">'.$feed['timestamp'].'</span></li>';	
+					echo '<li><i class="fa fa-twitter"></i> '.$feed['text'].'<span class="date"></br>'.$feed['timestamp'].'</span></li>';	
 				}
 			}else{
                             echo '<li>'.__( "Loading ...", 'imic-framework-admin').'</li>';

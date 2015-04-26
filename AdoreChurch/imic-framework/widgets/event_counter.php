@@ -71,7 +71,7 @@ class event_counter extends WP_Widget {
            
 	   // these are the widget options
 	   $post_title = apply_filters('widget_title', $instance['title']);
-	   $post_title = ($post_title=='')?__('Upcoming Events','imic-framework-admin'):$post_title;
+	   $post_title = ($post_title=='')?__('Próximos Eventos','imic-framework-admin'):$post_title;
        $category = apply_filters('widget-category', empty($instance['category']) ?'': $instance['category'], $instance, $this->id_base);
 	   $EventHeading = $post_title;
 	   echo $args['before_widget'];
@@ -96,38 +96,38 @@ class event_counter extends WP_Widget {
 				if($start_time_meta!='') {
 				$start_time_meta = strtotime($start_time_meta);
 				$start_time = date('G:i',$start_time_meta); }
+				$st_date = date('Y-m-d',$key);
+				$counter_time = strtotime($st_date.' '.$start_time);
 				$st_time = '';
 				$st_time = date('Y-m-d',$key);
 				$st_time = strtotime($st_time.' '.$start_time);
 				$event_end_date = get_post_meta($value,'imic_event_end_dt',true);
 				$event_end_date = strtotime($event_end_date);
-				$st_date = date('Y-m-d',$key);
 				$en_tm = date('G:i',$event_end_date);
-				$counter_time = strtotime($st_date.' '.$en_tm);
 				echo '<section class="upcoming-event format-standard event-list-item event-dynamic">';
 				if(has_post_thumbnail($value)) {
                             echo '<a href="'.esc_url($custom_event_url).'" class="media-box">'.
                                 get_the_post_thumbnail($value,'600x400').'
                             </a>'; }
                             echo '<div class="upcoming-event-content">
-                                <span class="label label-primary upcoming-event-label">'.__('Next coming event','framework').'</span>
+                                <span class="label label-primary upcoming-event-label">'.__('Próximo Evento','framework').'</span>
                                 <div id="event-counter-'.$this->id.'" class="counter clearfix" data-date="'.$counter_time.'">
-                                    <div class="timer-col"> <span id="days"></span> <span class="timer-type">'.__('Days','framework').'</span> </div>
-                                    <div class="timer-col"> <span id="hours"></span> <span class="timer-type">'.__('Hours','framework').'</span> </div>
-                                    <div class="timer-col"> <span id="minutes"></span> <span class="timer-type">'.__('Minutes','framework').'</span> </div>
-                                    <div class="timer-col"> <span id="seconds"></span> <span class="timer-type">'.__('Seconds','framework').'</span> </div>
+                                    <div class="timer-col"> <span id="days"></span> <span class="timer-type">'.__('Días','framework').'</span> </div>
+                                    <div class="timer-col"> <span id="hours"></span> <span class="timer-type">'.__('Horas','framework').'</span> </div>
+                                    <div class="timer-col"> <span id="minutes"></span> <span class="timer-type">'.__('Minutos','framework').'</span> </div>
+                                    <div class="timer-col"> <span id="seconds"></span> <span class="timer-type">'.__('Segundos','framework').'</span> </div>
                                 </div>
                                 <h3><a href="'.esc_url($custom_event_url).'" class="event-title">'.get_the_title($value).'</a></h3>
-                                <span class="meta-data">On <span class="event-date">'.date_i18n(get_option('date_format'), $key).'</span>'.__(' at ','framework').'<span class="event-time">'.date_i18n(get_option('time_format'), $st_time).'</span>'.__(' at','framework').'</span>';
+                                <span class="meta-data">El <span class="event-date">'.date_i18n(get_option('date_format'), $key).'</span>'.__(' a las ','framework').'<span class="event-time">'.date_i18n(get_option('time_format'), $st_time).'</span>'.__(' en','framework').'</span>';
 								$address = get_post_meta($value,'imic_event_address2',true); if($address!='') {
                               	echo '<span class="meta-data event-location"> <span class="event-location-address">'.$address.'</span></span>'; }
                             echo '</div>
                             <div class="upcoming-event-footer">'; $event_registration = get_post_meta($value,'imic_event_registration',true); if($event_registration==1) {
-                            	echo '<a id="imicregister-'.($value+2648).'|'.$key.'" href="#" class="pull-right btn btn-primary btn-sm event-tickets event-register-button">'.__('Register','framework').'</a>'; }
+                            	echo '<a id="imicregister-'.($value+2648).'|'.$key.'" href="#" class="pull-right btn btn-primary btn-sm event-tickets event-register-button">'.__('Regístrese','framework').'</a>'; }
                                 echo '<ul class="action-buttons">'; if ($imic_options['switch_sharing'] == 1 && $imic_options['share_post_types']['3'] == '1') { 
-                                    echo '<li title="Share event"><a href="#" data-trigger="focus" data-placement="top" data-content="" data-toggle="popover" data-original-title="Share Event" class="event-share-link"><i class="icon-share"></i></a></li>'; } $event_map = get_post_meta($value,'imic_event_address2',true); if($event_map!='') { 
-                                    echo '<li title="Get directions" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li>'; } $event_contact_info = get_post_meta($value,'imic_event_manager',true); if($event_contact_info!='') { 
-                                    echo '<li title="Contact event manager"><a id="imiccontact-'.($value+2648).'|'.$key.'" href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li>'; }
+                                    echo '<li title="Compartir Evento"><a href="#" data-trigger="focus" data-placement="top" data-content="" data-toggle="popover" data-original-title="Compartir Evento" class="event-share-link"><i class="icon-share"></i></a></li>'; } $event_map = get_post_meta($value,'imic_event_address2',true); if($event_map!='') { 
+                                    echo '<li title="Mostrar Dirección" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li>'; } $event_contact_info = get_post_meta($value,'imic_event_manager',true); if($event_contact_info!='') { 
+                                    echo '<li title="Contactar a Iglesia Arca de Jehová"><a id="imiccontact-'.($value+2648).'|'.$key.'" href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li>'; }
                                 echo '</ul>
                             </div>
                         </section>';
@@ -137,7 +137,7 @@ class event_counter extends WP_Widget {
 			echo '<section class="upcoming-event format-standard event-list-item event-dynamic">
 			<div class="upcoming-event-content">
 			<h3>'.
-			__('No Upcoming Events Found','imic-framework-admin').
+			__('No e encontraron eventos próximos','imic-framework-admin').
 			'</h3></div></div>';		
 		}
 	   echo $args['after_widget'];

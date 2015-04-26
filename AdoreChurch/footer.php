@@ -26,7 +26,7 @@ global $imic_options;
                                                         if(!empty($socialSites)){
                                                         ?>
                         <div class="col-md-3">
-                            <h4><i class="fa fa-clock-o"></i><?php _e(' Socialize with us','framework'); ?></h4>
+                            <h4><i class="fa fa-clock-o"></i><?php _e(' Socaliza con nosotros','framework'); ?></h4>
                             <ul class="social-icons-colored inversed">
                                 <?php
 								foreach ($socialSites as $key => $value) {
@@ -86,32 +86,32 @@ echo'<a id="back-to-top"><i class="fa fa-angle-double-up"></i></a> ';
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel"><?php _e('Contact Event Manager','framework'); ?> <span class="accent-color"></span></h4>
+        <h4 class="modal-title" id="myModalLabel"><?php _e('Contactar a Iglesia Arca de Jehová','framework'); ?> <span class="accent-color"></span></h4>
       </div>
       <div class="modal-body">
         <form id="contact-manager-form" class="paypal-submit-form" method="post">
             <div class="row">
                 <div class="col-md-6">
-                    <input id="username1" type="text" name="username1" class="form-control" placeholder="<?php _e('First name (Required)','framework'); ?>">
+                    <input id="username1" type="text" name="username1" class="form-control" placeholder="<?php _e('Nombre (Requerido)','framework'); ?>">
                 </div>
                 <div class="col-md-6">
-                    <input id="lastname1" type="text" name="lastname1" class="form-control" placeholder="<?php _e('Last name','framework'); ?>">
+                    <input id="lastname1" type="text" name="lastname1" class="form-control" placeholder="<?php _e('Apellido','framework'); ?>">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <input id="email1" type="text" name="email1" class="form-control" placeholder="<?php _e('Your email (Required)','framework'); ?>">
+                    <input id="email1" type="text" name="email1" class="form-control" placeholder="<?php _e('Correo electrónico (Requerido)','framework'); ?>">
                 </div>
                 <div class="col-md-6">
-                    <input id="phone1" type="text" name="phone1" class="form-control" placeholder="<?php _e('Your phone','framework'); ?>">
+                    <input id="phone1" type="text" name="phone1" class="form-control" placeholder="<?php _e('Teléfono','framework'); ?>">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <textarea id="notes1" name="notes1" rows="3" cols="5" class="form-control" placeholder="<?php _e('Additional notes','framework'); ?>"></textarea>
+                    <textarea id="notes1" name="notes1" rows="3" cols="5" class="form-control" placeholder="<?php _e('Comentarios Adicionales','framework'); ?>"></textarea>
                 </div>
             </div>
-            <input id="contact-manager" type="button" name="donate" class="btn btn-primary btn-lg btn-block" value="<?php _e('Contact Now','framework'); ?>">
+            <input id="contact-manager" type="button" name="donate" class="btn btn-primary btn-lg btn-block" value="<?php _e('Contactar Ahora','framework'); ?>">
             <div class="message"></div>
         </form>
       </div>

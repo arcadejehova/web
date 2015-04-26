@@ -33,7 +33,8 @@ function parseTweets($results = array()) {
 	if(!empty($results)&&!isset($results['error'])){
 		foreach($results as $result) {
 			$temp = explode(' ', $result['created_at']);
-			$timestamp = $temp[1] . '. ' . $temp[2] . ', ' . $temp[5];
+                                // Fri Apr 03 13:03:47 +0000 2015
+			$timestamp =  $temp[1] . '. ' . $temp[2] . ', ' . $temp[5];
 			$tweets[] = array(
 				'timestamp' => $timestamp,
 				'text' => twitterify($result['text'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),

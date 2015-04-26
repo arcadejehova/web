@@ -1009,14 +1009,14 @@ function event_calendar($atts) {
 	$output .= '</div>';
 	$output .= '<div class="grid-footer clearfix">';
 	$event_registration = get_post_meta($value,'imic_event_registration',true); if($event_registration==1) {
-   	$output .= '<a id="register-'.($value+2648).'|'.$key.'" href="#" class="pull-right btn btn-sm btn-primary btn-sm event-tickets event-register-button">'.__('Register','framework').'</a>'; }
+   	$output .= '<a id="register-'.($value+2648).'|'.$key.'" href="#" class="pull-right btn btn-sm btn-primary btn-sm event-tickets event-register-button">'.__('Regístrese','framework').'</a>'; }
  	$output .= '<ul class="action-buttons">';
 	if ($imic_options['switch_sharing'] == 1 && $imic_options['share_post_types']['3'] == '1') {
-  	$output .= '<li title="Share event"><a href="#" data-trigger="focus" data-placement="right" data-content="" data-toggle="popover" data-original-title="Share Event" class="event-share-link"><i class="icon-share"></i></a></li>'; } 
+  	$output .= '<li title="Compartir Evento"><a href="#" data-trigger="focus" data-placement="right" data-content="" data-toggle="popover" data-original-title="Compartir Evento" class="event-share-link"><i class="icon-share"></i></a></li>'; } 
 	$event_map = get_post_meta($value,'imic_event_address2',true); if($event_map!='') {
- 	$output .= '<li title="Get directions" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li>'; } 
+ 	$output .= '<li title="Mostrar Dirección" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li>'; } 
 	$event_contact_info = get_post_meta($value,'imic_event_manager',true); if($event_contact_info!='') {
-   	$output .= '<li title="Contact event manager"><a id="contact-'.($value+2648).'|'.$key.'" href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li>'; } 
+   	$output .= '<li title="Contactar a Iglesia Arca de Jehová"><a id="contact-'.($value+2648).'|'.$key.'" href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li>'; } 
   	$output .= '</ul></div>';
 	
     $output .= '</div></div></li></ul>';

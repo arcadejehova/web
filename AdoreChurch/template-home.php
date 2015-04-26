@@ -91,25 +91,25 @@ foreach($events as $key=>$value) {
             	<div class="col-md-5 col-sm-5">
                    <span class="label label-primary"><?php echo esc_attr($counter_title); ?></span>
                 	<h3><a href="<?php echo esc_url($custom_event_url); ?>" class="event-title"><?php echo esc_attr(get_the_title($value)); ?></a></h3>
-                   	<span class="meta-data">On <span class="event-date"><?php echo esc_attr(date_i18n(get_option('date_format'),$key)); ?></span><?php _e(' at ','framework'); ?><span class="event-time"><?php echo esc_attr(date_i18n(get_option('time_format'),$st_time)); ?></span><?php _e(' at','framework'); ?></span>
+                   	<span class="meta-data">El <span class="event-date"><?php echo esc_attr(date_i18n(get_option('date_format'),$key)); ?></span><?php _e(' a las ','framework'); ?><span class="event-time"><?php echo esc_attr(date_i18n(get_option('time_format'),$st_time)); ?></span><?php _e(' en','framework'); ?></span>
                     <?php $address = get_post_meta($value,'imic_event_address2',true); if($address!='') { ?>
                     <span class="meta-data event-location"> <span class="event-location-address"><?php echo esc_attr($address); ?></span></span><?php } ?>
                 </div>
                 <div class="col-md-5 col-sm-7">
                     <div id="counters" class="counter clearfix" data-date="<?php echo $counter_time; ?>">
-                        <div class="timer-col"> <span id="days"></span> <span class="timer-type"><?php _e('Days','framework'); ?></span> </div>
-                        <div class="timer-col"> <span id="hours"></span> <span class="timer-type"><?php _e('Hours','framework'); ?></span> </div>
-                        <div class="timer-col"> <span id="minutes"></span> <span class="timer-type"><?php _e('Minutes','framework'); ?></span> </div>
-                        <div class="timer-col"> <span id="seconds"></span> <span class="timer-type"><?php _e('Seconds','framework'); ?></span> </div>
+                        <div class="timer-col"> <span id="days"></span> <span class="timer-type"><?php _e('Días','framework'); ?></span> </div>
+                        <div class="timer-col"> <span id="hours"></span> <span class="timer-type"><?php _e('Horas','framework'); ?></span> </div>
+                        <div class="timer-col"> <span id="minutes"></span> <span class="timer-type"><?php _e('Minutos','framework'); ?></span> </div>
+                        <div class="timer-col"> <span id="seconds"></span> <span class="timer-type"><?php _e('Segundos','framework'); ?></span> </div>
                     </div>
                 </div>
                 <div class="col-md-2 text-align-right">
                     <ul class="action-buttons"><?php if ($imic_options['switch_sharing'] == 1 && $imic_options['share_post_types']['3'] == '1') { ?>
-                        <li title="Share event"><a href="#" data-trigger="focus" data-placement="top" data-content="" data-toggle="popover" data-original-title="Share Event" class="event-share-link"><i class="icon-share"></i></a></li><?php } $event_map = get_post_meta($value,'imic_event_address2',true); if($event_map!='') { ?>
-                        <li title="Get directions" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li><?php } $event_contact_info = get_post_meta($value,'imic_event_manager',true); if($event_contact_info!='') { ?>
-                        <li title="Contact event manager"><a id="contact-<?php ($value+2648).'|'.$key; ?>" href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li><?php } ?>
+                        <li title="Compartir Evento"><a href="#" data-trigger="focus" data-placement="top" data-content="" data-toggle="popover" data-original-title="Compartir Evento" class="event-share-link"><i class="icon-share"></i></a></li><?php } $event_map = get_post_meta($value,'imic_event_address2',true); if($event_map!='') { ?>
+                        <li title="Mostrar Dirección" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li><?php } $event_contact_info = get_post_meta($value,'imic_event_manager',true); if($event_contact_info!='') { ?>
+                        <li title="Contactar a Iglesia Arca de Jehová"><a id="contact-<?php ($value+2648).'|'.$key; ?>" href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li><?php } ?>
                     </ul><?php $event_registration = get_post_meta($value,'imic_event_registration',true); if($event_registration==1) { ?>
-                    <a id="register-<?php echo ($value+2648).'|'.$key; ?>" href="#" class="btn btn-primary btn-sm event-tickets event-register-button"><?php _e('Register','framework'); ?></a><?php } ?>
+                    <a id="register-<?php echo ($value+2648).'|'.$key; ?>" href="#" class="btn btn-primary btn-sm event-tickets event-register-button"><?php _e('Regístrese','framework'); ?></a><?php } ?>
                 </div>
             </div>
         </div>
@@ -224,18 +224,18 @@ else {
                                         	<h4><a href="<?php echo esc_url($custom_event_url); ?>" class="event-title"><?php echo esc_attr(get_the_title($value)); ?></a></h4>
                                         </div>
                                     	<div class="lined-info">
-                                        	<span class="meta-data"><i class="fa fa-clock-o"></i> <?php echo esc_attr(date_i18n('l', $key)); ?>, <span class="event-time"><?php echo date_i18n(get_option('time_format'), $st_time); if($start_time_meta!='') { echo ' - '.date_i18n(get_option('time_format'), $key); } ?></span> <?php if($key<date('U')) { echo '<span class="label label-default">'.__('Passed','framework').'</span>'; } elseif(date('U')>$st_time&&date('U')<$key) { echo '<span class="label label-success">'.__('Going On','framework').'</span>'; } else { echo '<span class="label label-primary">'.__('Upcoming','framework').'</span>'; } ?></span>
+                                        	<span class="meta-data"><i class="fa fa-clock-o"></i> <?php echo esc_attr(date_i18n('l', $key)); ?>, <span class="event-time"><?php echo date_i18n(get_option('time_format'), $st_time); if($start_time_meta!='') { echo ' - '.date_i18n(get_option('time_format'), $key); } ?></span> <?php if($key<date('U')) { echo '<span class="label label-default">'.__('Finalizado','framework').'</span>'; } elseif(date('U')>$st_time&&date('U')<$key) { echo '<span class="label label-success">'.__('Ocurriendo','framework').'</span>'; } else { echo '<span class="label label-primary">'.__('Próximo','framework').'</span>'; } ?></span>
                                         </div>
                                     	<div class="lined-info event-location">
                                         	<span class="meta-data"><i class="fa fa-map-marker"></i> <span class="event-location-address"><?php echo esc_attr($event_address); ?></span></span>
                                         </div>
                                     </div>
                                     <div class="event-list-item-actions"><?php if($key>date('U')) { $event_registration = get_post_meta($value,'imic_event_registration',true); if($event_registration==1) { ?>
-                                    	<a id="register-<?php echo ($value+2648).'|'.$key; ?>" href="#" class="btn btn-default btn-transparent event-tickets event-register-button"><?php _e('Register','framework'); ?></a><?php } } ?>
+                                    	<a id="register-<?php echo ($value+2648).'|'.$key; ?>" href="#" class="btn btn-default btn-transparent event-tickets event-register-button"><?php _e('Regístrese','framework'); ?></a><?php } } ?>
                                     	<ul class="action-buttons"><?php if ($imic_options['switch_sharing'] == 1 && $imic_options['share_post_types']['3'] == '1') { ?>
-                                        	<li title="Share event"><a href="#" data-trigger="focus" data-placement="top" data-content="" data-toggle="popover" data-original-title="Share Event" class="event-share-link"><i class="icon-share"></i></a></li><?php } $event_map = get_post_meta($value,'imic_event_address2',true); if($event_map!='') { ?>
-                                        	<li title="Get directions" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li><?php } $event_contact_info = get_post_meta($value,'imic_event_manager',true); if($event_contact_info!='') { ?>
-                                        	<li title="Contact event manager"><a id="contact-<?php echo ($value+2648).'|'.$key; ?>"  href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li><?php } ?>
+                                        	<li title="Compartir Evento"><a href="#" data-trigger="focus" data-placement="top" data-content="" data-toggle="popover" data-original-title="Compartir Evento" class="event-share-link"><i class="icon-share"></i></a></li><?php } $event_map = get_post_meta($value,'imic_event_address2',true); if($event_map!='') { ?>
+                                        	<li title="Mostrar Dirección" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li><?php } $event_contact_info = get_post_meta($value,'imic_event_manager',true); if($event_contact_info!='') { ?>
+                                        	<li title="Contactar a Iglesia Arca de Jehová"><a id="contact-<?php echo ($value+2648).'|'.$key; ?>"  href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li><?php } ?>
                                         </ul>
                                     </div>
                                 </div>

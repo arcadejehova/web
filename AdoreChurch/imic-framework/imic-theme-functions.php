@@ -546,7 +546,7 @@ function imic_event_grid() {
     	<h4><a class="event-title" href="'.esc_url($custom_event_url).'" class="event-title">'.get_the_title($value).'</a></h4>
        	</div>
        	<div class="lined-info">
-     	<span class="meta-data"><i class="fa fa-clock-o"></i> '.esc_attr(date_i18n('l', $key)).', <span class="event-time">'. esc_attr(date_i18n(get_option('time_format'), $st_time)); if($start_time_meta!='') { echo ' - '.date_i18n(get_option('time_format'), $key); } echo '</span> '; if($key<date('U')) { echo '<span class="label label-default">'.__('Passed','framework').'</span>'; } elseif(date('U')>$st_time&&date('U')<$key) { echo '<span class="label label-success">'.__('Going On','framework').'</span>'; } else { echo '<span class="label label-primary">'.__('Upcoming','framework').'</span>'; }
+     	<span class="meta-data"><i class="fa fa-clock-o"></i> '.esc_attr(date_i18n('l', $key)).', <span class="event-time">'. esc_attr(date_i18n(get_option('time_format'), $st_time)); if($start_time_meta!='') { echo ' - '.date_i18n(get_option('time_format'), $key); } echo '</span> '; if($key<date('U')) { echo '<span class="label label-default">'.__('Finalizado','framework').'</span>'; } elseif(date('U')>$st_time&&date('U')<$key) { echo '<span class="label label-success">'.__('Ocurriendo','framework').'</span>'; } else { echo '<span class="label label-primary">'.__('Próximo','framework').'</span>'; }
        	echo '</div>
       	<div class="lined-info event-location">
        	<span class="meta-data"><i class="fa fa-map-marker"></i> <span class="event-location-address">'.esc_attr($event_address).'</span></span>
@@ -555,14 +555,14 @@ function imic_event_grid() {
        	<div class="event-list-item-actions">';
 		if($key>date('U')) {
 		$event_registration = get_post_meta($value,'imic_event_registration',true); if($event_registration==1) {
-      	echo '<a  id="register-'.($value+2648).'|'.$key.'" href="#" class="btn btn-default btn-transparent event-tickets event-register-button">'.__('Register','framework').'</a>'; } }
+      	echo '<a  id="register-'.($value+2648).'|'.$key.'" href="#" class="btn btn-default btn-transparent event-tickets event-register-button">'.__('Regístrese','framework').'</a>'; } }
        	echo '<ul class="action-buttons">';
 		if ($imic_options['switch_sharing'] == 1 && $imic_options['share_post_types']['3'] == '1') { 
-       	echo '<li title="Share event"><a href="#" data-trigger="focus" data-placement="top" data-content="" data-toggle="popover" data-original-title="Share Event" class="event-share-link"><i class="icon-share"></i></a></li>';
+       	echo '<li title="Compartir Evento"><a href="#" data-trigger="focus" data-placement="top" data-content="" data-toggle="popover" data-original-title="Compartir Evento" class="event-share-link"><i class="icon-share"></i></a></li>';
 		} $event_map = get_post_meta($value,'imic_event_address2',true); if($event_map!='') { 
-       	echo '<li title="Get directions" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li>';
+       	echo '<li title="Mostrar Dirección" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li>';
 		} $event_contact_info = get_post_meta($value,'imic_event_manager',true); if($event_contact_info!='') { 
-      	echo '<li title="Contact event manager"><a id="contact-'.($value+2648).'|'.$key.'" href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li>'; }
+      	echo '<li title="Contactar a Iglesia Arca de Jehová"><a id="contact-'.($value+2648).'|'.$key.'" href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li>'; }
       	echo '</ul>
        	</div>
       	</li>';
@@ -1315,7 +1315,7 @@ krsort($events); }
                                         	<h4><a class="event-title" href="'.esc_url($custom_event_url).'" class="event-title">'.get_the_title($value).'</a></h4>
                                         </div>
                                     	<div class="lined-info">
-                                        	<span class="meta-data"><i class="fa fa-clock-o"></i> '.esc_attr(date_i18n('l', $key)).', <span class="event-time">'. esc_attr(date_i18n(get_option('time_format'), $st_time)); if($start_time_meta!='') { echo ' - '.date_i18n(get_option('time_format'), $key); } echo '</span> '; if($key<date('U')) { echo '<span class="label label-default">'.__('Passed','framework').'</span>'; } elseif(date('U')>$st_time&&date('U')<$key) { echo '<span class="label label-success">'.__('Going On','framework').'</span>'; } else { echo '<span class="label label-primary">'.__('Upcoming','framework').'</span>'; }
+                                        	<span class="meta-data"><i class="fa fa-clock-o"></i> '.esc_attr(date_i18n('l', $key)).', <span class="event-time">'. esc_attr(date_i18n(get_option('time_format'), $st_time)); if($start_time_meta!='') { echo ' - '.date_i18n(get_option('time_format'), $key); } echo '</span> '; if($key<date('U')) { echo '<span class="label label-default">'.__('Finalizado','framework').'</span>'; } elseif(date('U')>$st_time&&date('U')<$key) { echo '<span class="label label-success">'.__('Ocurriendo','framework').'</span>'; } else { echo '<span class="label label-primary">'.__('Próximo','framework').'</span>'; }
        	echo '</div>
                                     	<div class="lined-info event-location">
                                         	<span class="meta-data"><i class="fa fa-map-marker"></i> <span class="event-location-address">'.$event_address.'</span></span>
@@ -1324,14 +1324,14 @@ krsort($events); }
                                     <div class="event-list-item-actions">';
 									if($key>date('U')) {
 									$event_registration = get_post_meta($value,'imic_event_registration',true); if($event_registration==1) { 
-                                    	echo '<a id="register-'.($value+2648).'|'.$key.'" href="#" class="btn btn-default btn-transparent event-tickets event-register-button">'.__('Register','framework').'</a>'; } }
+                                    	echo '<a id="register-'.($value+2648).'|'.$key.'" href="#" class="btn btn-default btn-transparent event-tickets event-register-button">'.__('Regístrese','framework').'</a>'; } }
                                     	echo '<ul class="action-buttons">';
 										if ($imic_options['switch_sharing'] == 1 && $imic_options['share_post_types']['3'] == '1') { 
-                                        	echo '<li title="Share event"><a href="#" data-trigger="focus" data-placement="top" data-content="" data-toggle="popover" data-original-title="Share Event" class="event-share-link"><i class="icon-share"></i></a></li>';
+                                        	echo '<li title="Compartir Evento"><a href="#" data-trigger="focus" data-placement="top" data-content="" data-toggle="popover" data-original-title="Compartir Evento" class="event-share-link"><i class="icon-share"></i></a></li>';
 											} $event_map = get_post_meta($value,'imic_event_address2',true); if($event_map!='') { 
-                                        	echo '<li title="Get directions" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li>';
+                                        	echo '<li title="Mostrar Dirección" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li>';
 											} $event_contact_info = get_post_meta($value,'imic_event_manager',true); if($event_contact_info!='') { 
-                                        	echo '<li title="Contact event manager"><a id="contact-'.($value+2648).'|'.$key.'" href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li>'; }
+                                        	echo '<li title="Contactar a Iglesia Arca de Jehová"><a id="contact-'.($value+2648).'|'.$key.'" href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li>'; }
                                         echo '</ul>
                                     </div>
                                 </li>';
@@ -1420,36 +1420,36 @@ global $imic_options;
             echo '<div class="social-share-bar">';
 			if($imic_options['sharing_style'] == '0'){
 				if($imic_options['sharing_color'] == '0'){
-					echo '<h4><i class="fa fa-share-alt"></i> '.__('Share','framework').'</h4>';
+					echo '<h4><i class="fa fa-share-alt"></i> '.__('Compartir','framework').'</h4>';
             		echo '<ul class="social-icons-colored">';
 				}elseif($imic_options['sharing_color'] == '1'){
-					echo '<h4><i class="fa fa-share-alt"></i> '.__('Share','framework').'</h4>';
+					echo '<h4><i class="fa fa-share-alt"></i> '.__('Compartir','framework').'</h4>';
             		echo '<ul class="social-icons-colored share-buttons-tc">';
 				}elseif($imic_options['sharing_color'] == '2'){
-					echo '<h4><i class="fa fa-share-alt"></i> '.__('Share','framework').'</h4>';
+					echo '<h4><i class="fa fa-share-alt"></i> '.__('Compartir','framework').'</h4>';
             		echo '<ul class="social-icons-colored share-buttons-gs">';
 				}
 			} elseif($imic_options['sharing_style'] == '1'){
 				if($imic_options['sharing_color'] == '0'){
-					echo '<h4><i class="fa fa-share-alt"></i> '.__('Share','framework').'</h4>';
+					echo '<h4><i class="fa fa-share-alt"></i> '.__('Compartir','framework').'</h4>';
             		echo '<ul class="social-icons-colored share-buttons-squared">';
 				}elseif($imic_options['sharing_color'] == '1'){
-					echo '<h4><i class="fa fa-share-alt"></i> '.__('Share','framework').'</h4>';
+					echo '<h4><i class="fa fa-share-alt"></i> '.__('Compartir','framework').'</h4>';
             		echo '<ul class="social-icons-colored share-buttons-tc share-buttons-squared">';
 				}elseif($imic_options['sharing_color'] == '2'){
-					echo '<h4><i class="fa fa-share-alt"></i> '.__('Share','framework').'</h4>';
+					echo '<h4><i class="fa fa-share-alt"></i> '.__('Compartir','framework').'</h4>';
             		echo '<ul class="social-icons-colored share-buttons-gs share-buttons-squared">';
 				}
 			};
                 	echo '<li class="share-title"></li>';
 					if($imic_options['share_icon']['1'] == '1'){
-                   		echo '<li class="facebook-share"><a href="https://www.facebook.com/sharer/sharer.php?u=' . $postpermalink . '&amp;t=' . $posttitle . '" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i></a></li>';
+                   		echo '<li class="facebook-share"><a href="https://www.facebook.com/sharer/sharer.php?u=' . $postpermalink . '&amp;t=' . $posttitle . '" target="_blank" title="Compartir en Facebook"><i class="fa fa-facebook"></i></a></li>';
 					}
 					if($imic_options['share_icon']['2'] == '1'){
-                     	echo '<li class="twitter-share"><a href="https://twitter.com/intent/tweet?source=' . $postpermalink . '&amp;text=' . $posttitle . ':' . $postpermalink . '" target="_blank" title="Tweet"><i class="fa fa-twitter"></i></a></li>';
+                     	echo '<li class="twitter-share"><a href="https://twitter.com/intent/tweet?source=' . $postpermalink . '&amp;text=' . $posttitle . ':' . $postpermalink . '" target="_blank" title="Compartir en Twitter"><i class="fa fa-twitter"></i></a></li>';
 					}
 					if($imic_options['share_icon']['3'] == '1'){
-                    echo '<li class="google-share"><a href="https://plus.google.com/share?url=' . $postpermalink . '" target="_blank" title="Share on Google+"><i class="fa fa-google-plus"></i></a></li>';
+                    echo '<li class="google-share"><a href="https://plus.google.com/share?url=' . $postpermalink . '" target="_blank" title="Compartir en Google+"><i class="fa fa-google-plus"></i></a></li>';
 					}
 					if($imic_options['share_icon']['4'] == '1'){
                     	echo '<li class="tumblr-share"><a href="http://www.tumblr.com/share?v=3&amp;u=' . $postpermalink . '&amp;t=' . $posttitle . '&amp;s=" target="_blank" title="Post to Tumblr"><i class="fa fa-tumblr"></i></a></li>';
@@ -1461,7 +1461,7 @@ global $imic_options;
                     	echo '<li class="reddit-share"><a href="http://www.reddit.com/submit?url=' . $postpermalink . '&amp;title=' . $posttitle . '" target="_blank" title="Submit to Reddit"><i class="fa fa-reddit"></i></a></li>';
 					}
 					if($imic_options['share_icon']['7'] == '1'){
-                    	echo '<li class="linkedin-share"><a href="http://www.linkedin.com/shareArticle?mini=true&url=' . $postpermalink . '&amp;title=' . $posttitle . '&amp;summary=' . $postexcerpt . '&amp;source=' . $postpermalink . '" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a></li>';
+                    	echo '<li class="linkedin-share"><a href="http://www.linkedin.com/shareArticle?mini=true&url=' . $postpermalink . '&amp;title=' . $posttitle . '&amp;summary=' . $postexcerpt . '&amp;source=' . $postpermalink . '" target="_blank" title="Compartir en LinkedIn"><i class="fa fa-linkedin"></i></a></li>';
 					}
 					if($imic_options['share_icon']['8'] == '1'){
                     	echo '<li class="email-share"><a href="mailto:?subject=' . $posttitle . '&amp;body=' . $postexcerpt . ':' . $postpermalink . '" target="_blank" title="Email"><i class="fa fa-envelope"></i></a></li>';
@@ -1632,14 +1632,14 @@ function imic_get_event_details() {
 	$output .= '<div class="grid-footer clearfix">';
 	if($key>date('U')) {
 	$event_registration = get_post_meta($id,'imic_event_registration',true); if($event_registration==1) {
-   	$output .= '<a id="register-'.($id+2648).'|'.$key.'" href="#" class="pull-right btn btn-sm btn-primary btn-sm event-tickets event-register-button">'.__('Register','framework').'</a>'; } }
+   	$output .= '<a id="register-'.($id+2648).'|'.$key.'" href="#" class="pull-right btn btn-sm btn-primary btn-sm event-tickets event-register-button">'.__('Regístrese','framework').'</a>'; } }
  	$output .= '<ul class="action-buttons">';
 	if ($imic_options['switch_sharing'] == 1 && $imic_options['share_post_types']['3'] == '1') {
-  	$output .= '<li title="Share event"><a href="#" data-trigger="focus" data-placement="right" data-content="" data-toggle="popover" data-original-title="Share Event" class="event-share-link"><i class="icon-share"></i></a></li>'; } 
+  	$output .= '<li title="Compartir Evento"><a href="#" data-trigger="focus" data-placement="right" data-content="" data-toggle="popover" data-original-title="Compartir Evento" class="event-share-link"><i class="icon-share"></i></a></li>'; } 
 	$event_map = get_post_meta($id,'imic_event_address2',true); if($event_map!='') {
- 	$output .= '<li title="Get directions" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li>'; } 
+ 	$output .= '<li title="Mostrar Dirección" class="hidden-xs"><a href="#" class="cover-overlay-trigger event-direction-link"><i class="icon-compass"></i></a></li>'; } 
 	$event_contact_info = get_post_meta($id,'imic_event_manager',true); if($event_contact_info!='') {
-   	$output .= '<li title="Contact event manager"><a id="contact-'.($id+2648).'|'.$key.'" href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li>'; } 
+   	$output .= '<li title="Contactar a Iglesia Arca de Jehová"><a id="contact-'.($id+2648).'|'.$key.'" href="#" data-toggle="modal" data-target="#Econtact" class="event-contact-link"><i class="icon-mail"></i></a></li>'; } 
   	$output .= '</ul></div>';
 	
     $output .= '</div></div></li></ul>';

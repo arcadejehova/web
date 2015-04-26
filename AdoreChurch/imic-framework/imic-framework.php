@@ -41,7 +41,7 @@ require_once(ImicFrameworkPath . '/widgets/upcoming_events.php');
 require_once(ImicFrameworkPath . '/widgets/selected_post.php');
 require_once(ImicFrameworkPath . '/widgets/custom_category.php');
 require_once(ImicFrameworkPath . '/widgets/twitter_feeds/twitter_feeds.php');
-require_once(ImicFrameworkPath . '/widgets/Newsletter/newsletter.php');
+//require_once(ImicFrameworkPath . '/widgets/Newsletter/newsletter.php');
 require_once(ImicFrameworkPath . '/widgets/speaker_widget.php');
 require_once(ImicFrameworkPath . '/widgets/sermon_widget.php');
 require_once(ImicFrameworkPath . '/widgets/event_counter.php');
